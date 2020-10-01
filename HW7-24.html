@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蝸牛爬爬爬</title>
+</head>
+<body>
+<style>
+
+    .title{
+        margin:auto;
+        padding: 2px;
+        width: 500px;
+        text-align: center;
+    }
+
+    .btn{
+        font-size: 20px;
+        margin-top: 50px;
+        text-align: center;
+        height: 50px;
+        width: 80px;
+    }
+
+    .ans{
+        width: 500px;
+        margin:auto;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 30px;
+        color: blue;
+    }
+    
+    .wall{
+        margin-left: 100px;
+        float: left;
+        height: 300px;
+        width: 300px;
+    }
+
+    .snail{
+        float: right;
+        margin-right: 100px;
+    }
+
+    .pos{
+        margin-top: 100px;
+    }
+
+
+</style>
+<div class="pos">
+<img class="wall" src="https://www.clker.com/cliparts/5/f/a/f/13340881631722753300Orange%20Brick%20Wall.svg.hi.png" alt="">
+<img class="snail" src="https://1.bp.blogspot.com/-SkkmSffeRV0/XW_Dr07w8II/AAAAAAAWMaQ/ng4mp8ztqr4RfdE9YUGAJnfIby1VQvHRQCLcBGAs/s1600/AW3992119_06.gif" alt="">
+
+<h1 class="title">蝸牛爬上去</h1>
+<h2 class="title">請問蝸牛幾天上屋頂</h2>
+<h3 class="title">輸入格式：牆高 > 從哪, 白天 > 晚上</h3>
+
+<div class="title">牆高：<input id="a" type="text" placeholder="請輸入公尺"></div>
+<div class="title">從哪：<input id="b" type="text" placeholder="請輸入從幾公尺開始爬"></div>
+<div class="title">白天：<input id="c" type="text" placeholder="請輸入白天爬幾公尺"></div>
+<div class="title">晚上：<input id="d" type="text" placeholder="請輸入晚上下降幾公尺"></div>
+<div class="title">
+<button onclick="calculate()" id="btn" class="btn">計算</button>
+<button onclick="reset()" id="reset" class="btn">重置</button>
+</div>
+<div class="ans"id="ans"></div>
+</div>
+
+
+ <script>
+    function calculate(){
+        var a = parseInt(document.getElementById("a").value)
+        var b = parseInt(document.getElementById("b").value)
+        var c = parseInt(document.getElementById("c").value)
+        var d = parseInt(document.getElementById("d").value)
+        if(a > 0 && b > 0 && c > 0 && d > 0 && a > b && c > d){
+            document.getElementById("ans").innerHTML = `一共需要${Math.ceil((a - b) / (c - d))}天`;
+            reset()
+        }else{
+            window.alert("請輸入正確格式！")
+            reset()
+        }   
+    }
+
+    function reset(){
+        document.getElementById("a").value = ""
+        document.getElementById("b").value = ""
+        document.getElementById("c").value = ""
+        document.getElementById("d").value = ""
+    }
+ </script>
+</body>
+</html>
